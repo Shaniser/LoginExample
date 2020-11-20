@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 
+import static android.graphics.Color.GREEN;
+import static android.graphics.Color.RED;
+
 public class SingIn extends AppCompatActivity implements View.OnClickListener {
     private static final HashMap<String, String> loginToPass = new HashMap<>();
 
@@ -24,6 +27,8 @@ public class SingIn extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_in);
+
+        loginToPass.put("login1", "examplePass1");
 
         login = findViewById(R.id.login);
         password = findViewById(R.id.password);
@@ -40,26 +45,13 @@ public class SingIn extends AppCompatActivity implements View.OnClickListener {
             case R.id.enter:
                 if (loginToPass.containsKey(login.getText().toString()) &&
                         loginToPass.get(login.getText().toString()).equals(password.getText().toString())) {
-                    success.setText("Успешно!");
+                    success.setText("Верно");
+                    success.setTextColor(GREEN);
                 } else {
-                    Intent intent = new Intent(this, SingUp.class);
-                    startActivityForResult(intent, 1);
+                    success.setText("Вы ошиблись в логине или пароле");
+                    success.setTextColor(RED);
                 }
                 break;
         }
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (data == null) {
-            return;
-        }
-        String userLogin = data.getStringExtra("login");
-        String userPassword = data.getStringExtra("password");
-        loginToPass.put(userLogin, userPassword);
-        login.setText(userLogin);
-        password.setText(userPassword);
     }
 }

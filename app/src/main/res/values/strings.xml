@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">LoginExample</string>
     <string name="enter">Вход</string>
-    <string name="login">Логин</string>
-    <string name="password">Пароль</string>
+    <string name="login">Логин (login1)</string>
+    <string name="password">Пароль (examplePass1)</string>
     <string name="register">Регистрация</string>
     <string name="enterData">Введите данные</string>
 </resources>

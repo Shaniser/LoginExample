@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginExample">
-        <activity android:name=".SingUp" />
         <activity
             android:label="Sing In"
             android:name=".SingIn" >
